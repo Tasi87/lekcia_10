@@ -1,32 +1,81 @@
-//idea	Arguments a functions
+//idea	REST parameter
 
-// arguments
-// eval()
-// with
-// for in
-// delete
+// const firstFunction = (firstName, secondName, ...rest) => {
+// 	console.log(rest)
+// }
 
-//note arguments
-//!	-	arguments nie je pole
+// firstFunction("Jožko", "Mrkvička", "programátor", "BA");
 
-function firstFunction (firstName, secondName) {
-	console.log(arguments);
-	console.log(arguments[0]);
-	console.log(arguments[1]);
+function firstFunction (firstName, secondName, ...rest)  {
+	console.log(rest)
+}
 
-								// Prevediem arguments na pole
-	const newArgumemnts = Array.from(arguments);
+firstFunction("Jožko", "Mrkvička", "programátor", "BA");
+
+//idea	Scope
+
+//note	lokálny scope
+const ageFunction = () => {
+	const age = 50;
+	console.log(age);
+}
+
+const nameFunction = () => {
+	const firstName = "Harry";
+	console.log(firstName)
+}
+
+ageFunction();
+nameFunction();
+//----------------------------------------
+
+//note	vnorený scope
+const firstFun = () => {
+	const age = 30;
 	
-	newArgumemnts.map( (item) => {
-			console.log(item);
-	});
+	// vnorený scope
+	const secondFun = () => {
+		const firstName = "Hermiona";
+		console.log(age);
+		console.log(firstName);
+	}
+	secondFun();
 }
 
-firstFunction("Jožko", "Mrkvička");
+firstFun();
+//----------------------------------------
+//note	globálny scope
 
-//!	Šípková notácia nepozná "arguments"
-const secondFunction = (firstName, secondName) => {
-	console.log(arguments);
+const age = 20;	// globálny scope
+
+const firstFunk = () => {
+	// vnorený scope
+	const secondFunk = () => {
+		const firstName = "Ron";
+		console.log(age);	
+	}
+	secondFunk();
+}
+firstFunk();
+//----------------------------------------
+
+//note	funkčný scope - lokálny a vnorený
+// všetok scope, ktorý sa týka nejakým spôsobom funkcií.
+
+const firFunkc = () => {
+	const nickName = "Tasi";
+	console.log(nickName);
 }
 
-// secondFunction("Harry", "Potter");
+firFunkc();
+//----------------------------------------
+//note	block scope - lokálny a vnorený
+// - Block scope znamená, že premenná je dostupná iba vo vnútri bloku { }, kde bola vytvorená.
+if (10 > 3) {
+	
+	if (100 > 3) {
+		const age = 21;
+		console.log(age);
+		
+	}
+}
