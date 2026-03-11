@@ -12,6 +12,23 @@ function firstFunction (firstName, secondName, ...rest)  {
 
 firstFunction("Jožko", "Mrkvička", "programátor", "BA");
 
+//idea	Scope a Lexical Enviroment
+
+/**
+	Scope určuje, akým spôsobom sa hľadajú premenné a ku ktorým 
+	premenným kód má prístup a ku ktorým nie.
+*/
+
+/**
+	Lexical enviroment je koncept, ktorý je JavaScripte hovorí, ako má ukladať 
+	premenné a ako má riadiť ich dosah.
+*/
+
+/**
+	Scope určuje, ktorý kód ma prístup ku ktorým premenným.
+	Lexical enviroment realizuje tento prístup v praxi.
+ */
+
 //idea	Scope
 
 //note	lokálny scope
